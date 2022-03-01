@@ -11,7 +11,8 @@ npm install react-native-nrf-device-manager
 ## Usage
 
 ```js
-import { multiply } from "react-native-nrf-device-manager";
+//TODO: Implement Manager
+import { multiply } from 'react-native-nrf-device-manager';
 
 // ...
 

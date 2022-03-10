@@ -1,11 +1,19 @@
-# react-native-nrf-device-manager
+# react-native-mcuboot
 
-nRF Connect Device Manager library is compatible with Mcu Manager, a management subsystem supported by nRF Connect SDK, Zephyr and Apache Mynewt.
+React Native MCUBoot is compatible with Mcu Manager, a management subsystem supported by nRF Connect SDK, Zephyr and Apache Mynewt.
 
 ## Installation
 
+Install via `npm`
+
 ```sh
-npm install react-native-nrf-device-manager
+npm install react-native-mcuboot
+```
+
+or via `yarn`
+
+```sh
+yarn add react-native-mcuboot
 ```
 
 ## Usage

@@ -18,10 +18,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('NrfDeviceManager_compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('Mcuboot_compileSdkVersion', 29)
     defaultConfig {
-        minSdkVersion safeExtGet('NrfDeviceManager_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('NrfDeviceManager_targetSdkVersion', 29)
+        minSdkVersion safeExtGet('Mcuboot_minSdkVersion', 16)
+        targetSdkVersion safeExtGet('Mcuboot_targetSdkVersion', 29)
         versionCode 1
         versionName "1.0"
 

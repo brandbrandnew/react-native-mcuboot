@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  NrfDeviceManagerExample
+//  McubootExample
 //
 
 import Foundation

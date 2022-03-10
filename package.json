@@ -1,7 +1,7 @@
 {
   "name": "react-native-mcuboot",
   "version": "0.1.0",
-  "description": "React Native MCU is compatible with Mcu Manager, a management subsystem supported by nRF Connect SDK, Zephyr and Apache Mynewt.",
+  "description": "React Native MCUBoot is compatible with Mcu Manager, a management subsystem supported by nRF Connect SDK, Zephyr and Apache Mynewt.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",

@@ -6,8 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const NrfDeviceManager = NativeModules.NrfDeviceManager
-  ? NativeModules.NrfDeviceManager
+const Mcuboot = NativeModules.Mcuboot
+  ? NativeModules.Mcuboot
   : new Proxy(
       {},
       {
@@ -22,7 +22,7 @@ export function list(
   failureCallback: Function,
   successCallback: Function
 ): Promise<Array<Object>> {
-  return NrfDeviceManager.list(id, failureCallback, successCallback);
+  return Mcuboot.list(id, failureCallback, successCallback);
 }
 
 export function upload(
@@ -31,7 +31,7 @@ export function upload(
   image: number,
   callback: Function
 ): Promise<Array<Object>> {
-  return NrfDeviceManager.upload(id, data, image, callback);
+  return Mcuboot.upload(id, data, image, callback);
 }
 
 export function test(
@@ -40,7 +40,7 @@ export function test(
   failureCallback: Function,
   successCallback: Function
 ): Promise<String> {
-  return NrfDeviceManager.test(id, hash, failureCallback, successCallback);
+  return Mcuboot.test(id, hash, failureCallback, successCallback);
 }
 
 export function reset(
@@ -48,7 +48,7 @@ export function reset(
   failureCallback: Function,
   successCallback: Function
 ): Promise<String> {
-  return NrfDeviceManager.reset(id, failureCallback, successCallback);
+  return Mcuboot.reset(id, failureCallback, successCallback);
 }
 
 export function confirm(
@@ -57,5 +57,5 @@ export function confirm(
   failureCallback: Function,
   successCallback: Function
 ): Promise<String> {
-  return NrfDeviceManager.confirm(id, hash, failureCallback, successCallback);
+  return Mcuboot.confirm(id, hash, failureCallback, successCallback);
 }

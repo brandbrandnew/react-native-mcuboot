@@ -1,19 +1,15 @@
-package com.reactnativenrfdevicemanager;
+package com.reactnativemcuboot;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.media.Image;
 import android.util.Base64;
 
 import androidx.annotation.NonNull;
 
-import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
@@ -23,15 +19,8 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.IntBuffer;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 import io.runtime.mcumgr.McuMgrCallback;
 import io.runtime.mcumgr.McuMgrTransport;
@@ -41,7 +30,6 @@ import io.runtime.mcumgr.managers.DefaultManager;
 import io.runtime.mcumgr.managers.ImageManager;
 import io.runtime.mcumgr.response.McuMgrResponse;
 import io.runtime.mcumgr.response.img.McuMgrImageStateResponse;
-import io.runtime.mcumgr.response.img.McuMgrImageUploadResponse;
 import io.runtime.mcumgr.transfer.UploadCallback;
 
 @ReactModule(name = McubootModule.NAME)

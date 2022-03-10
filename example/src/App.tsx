@@ -28,15 +28,24 @@ export default function App() {
   const [device, setDevice] = useState<Device | undefined>(null);
   const [images, setImages] = useState<Array | undefined>([]);
   const [downloading, setDownloading] = useState<Boolean | undefined>(false);
-  const [totalBytes, setTotalBytes] = useState<number | undefined>(0);
+  const [totalBytesToDownload, setTotalBytesToDownload] = useState<
+    number | undefined
+  >(0);
   const [downloadedBytes, setDownloadedBytes] = useState<number | undefined>(0);
+  const [uploading, setUploading] = useState<Boolean | undefined>(false);
+  const [totalBytesToUpload, setTotalBytesToUpload] = useState<
+    number | undefined
+  >(0);
+  const [uploadedBytes, setUploadedBytes] = useState<number | undefined>(0);
 
   useEffect(() => {
     const eventEmitter = new NativeEventEmitter(NativeModules.NrfDeviceManager);
     const eventListener = eventEmitter.addListener(
       'onUploadProgress',
       (event) => {
-        console.log(event); // "someValue"
+        setUploadedBytes(event.current);
+        setTotalBytesToUpload(event.total);
+        console.log(event);
       }
     );
     const manager = new BleManager();
@@ -99,7 +108,7 @@ export default function App() {
         RNFS.downloadFile({
           ...downloadOptions,
           begin: (data) => {
-            setTotalBytes(data.contentLength);
+            setTotalBytesToDownload(data.contentLength);
             setDownloading(true);
           },
           progress: (data) => {
@@ -125,8 +134,10 @@ export default function App() {
         const response = await RNFS.readFile(downloadOptions.toFile, 'base64');
         const bytes = Buffer.from(response, 'base64');
         const data = bytes.toJSON().data;
+        setUploading(true);
         upload(device.id, response, 0, (result) => {
           console.log(result);
+          setUploading(false);
           listImages(device.id);
         });
         break;
@@ -199,7 +210,12 @@ export default function App() {
           </View>
           {downloading && (
             <Text>
-              Downloading ({downloadedBytes}/{totalBytes})
+              Downloading ({downloadedBytes}/{totalBytesToDownload})
+            </Text>
+          )}
+          {uploading && (
+            <Text>
+              Uploading ({uploadedBytes}/{totalBytesToUpload})
             </Text>
           )}
         </View>

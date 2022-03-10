@@ -9,13 +9,7 @@ import {
   NativeModules,
 } from 'react-native';
 import { BleManager, Device } from 'react-native-ble-plx';
-import {
-  list,
-  upload,
-  test,
-  reset,
-  confirm,
-} from 'react-native-nrf-device-manager';
+import { list, upload, test, reset, confirm } from 'react-native-mcuboot';
 import { uniqBy, filter } from 'lodash';
 import RNFS from 'react-native-fs';
 import { Buffer } from 'buffer';

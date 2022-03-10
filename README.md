@@ -20,7 +20,7 @@ yarn add react-native-mcuboot
 
 ```js
 //TODO: Implement Manager
-import { multiply } from 'react-native-nrf-device-manager';
+import { multiply } from 'react-native-mcuboot';
 
 // ...
 

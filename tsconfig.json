@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-nrf-device-manager": ["./src/index"]
+      "react-native-mcuboot": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

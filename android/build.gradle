@@ -22,8 +22,6 @@ android {
     defaultConfig {
         minSdkVersion safeExtGet('Mcuboot_minSdkVersion', 16)
         targetSdkVersion safeExtGet('Mcuboot_targetSdkVersion', 29)
-        versionCode 1
-        versionName "1.0"
 
     }
 

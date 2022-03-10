@@ -17,6 +17,45 @@ const NrfDeviceManager = NativeModules.NrfDeviceManager
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return NrfDeviceManager.multiply(a, b);
+export function list(
+  id: String,
+  failureCallback: Function,
+  successCallback: Function
+): Promise<Array<Object>> {
+  return NrfDeviceManager.list(id, failureCallback, successCallback);
+}
+
+export function upload(
+  id: String,
+  data: String,
+  image: number,
+  callback: Function
+): Promise<Array<Object>> {
+  return NrfDeviceManager.upload(id, data, image, callback);
+}
+
+export function test(
+  id: String,
+  hash: String,
+  failureCallback: Function,
+  successCallback: Function
+): Promise<String> {
+  return NrfDeviceManager.test(id, hash, failureCallback, successCallback);
+}
+
+export function reset(
+  id: String,
+  failureCallback: Function,
+  successCallback: Function
+): Promise<String> {
+  return NrfDeviceManager.reset(id, failureCallback, successCallback);
+}
+
+export function confirm(
+  id: String,
+  hash: String,
+  failureCallback: Function,
+  successCallback: Function
+): Promise<String> {
+  return NrfDeviceManager.confirm(id, hash, failureCallback, successCallback);
 }

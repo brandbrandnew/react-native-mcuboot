@@ -1,4 +1,4 @@
-rootProject.name = 'NrfDeviceManagerExample'
+rootProject.name = 'McubootExample'
 
 include ':reactnativemcuboot'
 project(':reactnativemcuboot').projectDir = new File(rootProject.projectDir, '../../android')

@@ -44,16 +44,16 @@ import io.runtime.mcumgr.response.img.McuMgrImageStateResponse;
 import io.runtime.mcumgr.response.img.McuMgrImageUploadResponse;
 import io.runtime.mcumgr.transfer.UploadCallback;
 
-@ReactModule(name = NrfDeviceManagerModule.NAME)
-public class NrfDeviceManagerModule extends ReactContextBaseJavaModule {
-  public static final String NAME = "NrfDeviceManager";
+@ReactModule(name = McubootModule.NAME)
+public class McubootModule extends ReactContextBaseJavaModule {
+  public static final String NAME = "Mcuboot";
   private final ReactApplicationContext reactContext;
   BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
   McuMgrTransport transport;
   ImageManager imageManager;
   DefaultManager mManager;
 
-  public NrfDeviceManagerModule(ReactApplicationContext reactContext) {
+  public McubootModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }

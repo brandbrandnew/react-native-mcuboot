@@ -4,14 +4,23 @@ React Native MCUBoot is compatible with Mcu Manager, a management subsystem supp
 
 ## Installation
 
+Install via `npm`
+
 ```sh
 npm install react-native-mcuboot
+```
+
+or via `yarn`
+
+```sh
+yarn add react-native-mcuboot
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "react-native-mcuboot";
+//TODO: Implement Manager
+import { multiply } from 'react-native-mcuboot';
 
 // ...
 

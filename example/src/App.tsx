@@ -141,8 +141,6 @@ export default function App() {
         break;
       case 'Upload':
         const response = await RNFS.readFile(downloadOptions.toFile, 'base64');
-        const bytes = Buffer.from(response, 'base64');
-        const data = bytes.toJSON().data;
         setUploading(true);
         upload(device.id, response, 0, (result) => {
           console.log(result);

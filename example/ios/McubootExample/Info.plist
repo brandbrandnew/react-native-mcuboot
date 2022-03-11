@@ -53,5 +53,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Play with BLE Compatible devices</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Testing Bluetooth Updates</string>
 </dict>
 </plist>

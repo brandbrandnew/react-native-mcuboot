@@ -39,7 +39,7 @@ export default function App() {
   const [uploadedBytes, setUploadedBytes] = useState<number | undefined>(0);
 
   useEffect(() => {
-    const eventEmitter = new NativeEventEmitter(NativeModules.NrfDeviceManager);
+    const eventEmitter = new NativeEventEmitter(NativeModules.Mcuboot);
     const eventListener = eventEmitter.addListener(
       'onUploadProgress',
       (event) => {
@@ -145,7 +145,7 @@ export default function App() {
         if (images.length < 2) break;
         test(
           device.id,
-          images[1].hash,
+          images[1].hash.toString(),
           (error) => {
             console.log('Test error', error);
           },

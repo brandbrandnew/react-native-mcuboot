@@ -193,6 +193,4 @@ public class McubootModule extends ReactContextBaseJavaModule {
       }
     });
   }
-
-  public static native int nativeMultiply(int a, int b);
 }

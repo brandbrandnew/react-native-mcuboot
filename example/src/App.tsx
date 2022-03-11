@@ -9,7 +9,14 @@ import {
   NativeModules,
 } from 'react-native';
 import { BleManager, Device } from 'react-native-ble-plx';
-import { list, upload, test, reset, confirm } from 'react-native-mcuboot';
+import {
+  list,
+  upload,
+  test,
+  reset,
+  confirm,
+  UploadEvents,
+} from 'react-native-mcuboot';
 import { uniqBy, filter } from 'lodash';
 import RNFS from 'react-native-fs';
 import { Buffer } from 'buffer';
@@ -39,22 +46,24 @@ export default function App() {
   const [uploadedBytes, setUploadedBytes] = useState<number | undefined>(0);
 
   useEffect(() => {
-    const eventEmitter = new NativeEventEmitter(NativeModules.Mcuboot);
-    const eventListener = eventEmitter.addListener(
+    const onUploadProgress = (event) => {
+      setUploadedBytes(event.current);
+      setTotalBytesToUpload(event.total);
+      console.log(event);
+    };
+
+    const subscription = UploadEvents.addListener(
       'onUploadProgress',
-      (event) => {
-        setUploadedBytes(event.current);
-        setTotalBytesToUpload(event.total);
-        console.log(event);
-      }
+      onUploadProgress
     );
+
     const manager = new BleManager();
     setBleManager(manager);
 
     return () => {
       console.log('Destroying BLE Manager');
       manager.destroy();
-      eventListener.remove();
+      subscription.remove();
     };
   }, []);
 
@@ -69,7 +78,7 @@ export default function App() {
 
       if (!scannedDevice) return;
 
-      if (scannedDevice.name !== 'Heatle-Hub') return;
+      if (scannedDevice.name !== 'Heatle-HEATLE') return;
 
       setDevices((oldDevices) => uniqBy([...oldDevices, scannedDevice], 'id'));
     });

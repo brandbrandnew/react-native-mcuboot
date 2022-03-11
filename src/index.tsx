@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-mcuboot' doesn't seem to be linked. Make sure: \n\n` +
@@ -59,3 +59,5 @@ export function confirm(
 ): Promise<String> {
   return Mcuboot.confirm(id, hash, failureCallback, successCallback);
 }
+
+export const UploadEvents = new NativeEventEmitter(Mcuboot);
